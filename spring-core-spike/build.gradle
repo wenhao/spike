@@ -1,0 +1,24 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+project.ext {
+	springVersion = "4.0.5.RELEASE"
+	junitVersion = "4.11"
+    mockitoVersion = "1.9.5"
+}
+
+dependencies {
+	compile(
+		"org.springframework:spring-beans:$springVersion"
+	)
+	
+	testCompile(
+		"junit:junit:$junitVersion",
+        "org.mockito:mockito-all:$mockitoVersion"
+	)
+}

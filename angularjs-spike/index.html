@@ -1,10 +1,40 @@
 <!doctype html>
-<html ng-app="directive-spike">
+<html ng-app="myApp">
     <head>
-		<script src="http://code.angularjs.org/1.2.2/angular.min.js"></script>
-		<script src="directive/hello-world.js" type="text/javascript"></script>
+        <title>Angular Spike</title>
     </head>
+
     <body>
-	    <div hello-world></div>
+        <div ng-controller="controllerCtrl">
+            {{ greeting }}
+        </div>
+        <div ng-controller="doubleCtrl">
+            <input ng-model="num"> {{ double(num) }}
+        </div>
+        <div ng-controller="spicyCtrl">
+            <button ng-click="chiliSpicy()">Chili</button>
+            <button ng-click="jalapenoSpicy()">jalapeno</button>
+            <p>The food is {{ spice }} spicy !</p>
+        </div>
+        <div ng-controller="spicyCtrl2">
+            <input ng-model="customSpice">
+            <button ng-click="spicy('chili')">chili</button>
+            <button ng-click="spicy(customSpice)">customSpice</button>
+            <p>The spice is {{ spice }} spicy !</p>
+        </div>
+        <br>
+        <div ng-controller="mainCtrl">
+            <p>Good {{ timeOfDay }}, {{ name }}</p>
+            <div ng-controller="childCtrl">
+                <p>Good {{ timeOfDay }}, {{ name }}</p>
+                <div ng-controller="grandChildCtrl">
+                    <p>Good {{ timeOfDay }}, {{ name }}</p>
+                </div>
+            </div>
+        </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+    <script src="./js/controller.js"></script>
     </body>
 </html>
