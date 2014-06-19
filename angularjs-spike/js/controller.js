@@ -43,3 +43,24 @@ myApp.controller('grandChildCtrl', ["$scope", function($scope){
     $scope.timeOfDay = 'evening';
     $scope.name = 'Gingerbreak Baby';
 }]);
+
+myApp.controller('Cntl2', ["$scope", function($scope) {
+    var exprs = $scope.exprs = [];
+    $scope.expr = '3*10|currency';
+
+    $scope.addExp = function(expr){
+        exprs.push(expr);
+    };
+
+    $scope.removeExp = function(index) {
+        exprs.splice(index, 1);
+    };
+}]);
+
+myApp.controller('Cntl1', ["$scope", function($scope){
+    $scope.name = 'World';
+
+    $scope.greet = function() {
+        ($window.mockWindow || $window).alert('Hello ' + $scope.name);
+    };
+}]);

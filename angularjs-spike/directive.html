@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myDirective">
+<head>
+    <title>Angular Directive</title>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        <div my-customer></div>
+        <my-customer></my-customer>
+    </div>
+    <hr/>
+    <div ng-controller="IgnoCtrl">
+        <my-customer></my-customer>
+        <br/>
+        <my-custm></my-custm>
+    </div>
+    <div ng-controller="Ctrl">
+        <attr-customer info="customer"></attr-customer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+    <script src="./js/directive.js"></script>
+</body>
+</html>
