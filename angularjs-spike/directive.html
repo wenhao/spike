@@ -17,8 +17,33 @@
     <div ng-controller="Ctrl">
         <attr-customer info="customer"></attr-customer>
     </div>
+    <hr/>
+    <div ng-controller="DateAndTimeCtrl">
+        Date Format: <input ng-model="format"><hr/>
+        Current time is: <span my-current-time="format"></span>
+    </div>
+    <div ng-controller="transcludeCtrl">
+        <my-dialog>Check out the contents, {{ name }}!</my-dialog>
+    </div>
+    <div ng-controller="myDialogCloseCtrl">
+        <my-close-dialog ng-hide="dialogIsHidden" on-close="hideDialog()">
+            Check out the contents, {{ name }}!
+        </my-close-dialog>
+    </div>
+    <span my-draggable>Drag ME</span>
+    <my-tabs>
+        <my-pane title="Hello">
+            <h5 id="source_hello">Hello</h5>
+            <p>Lorem ipsum dolor sit amet</p>
+        </my-pane>
+        <my-pane title="World">
+            <h5 id="source_world">World</h5>
+            <em>Mauris elementum elementum enim at suscipt.</em>
+            <p><a href ng-click="i = i + i">counter: {{ i || 0 }}</a></p>
+        </my-pane>
+    </my-tabs>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+    <script src="./js/angular-1.2.18.js"></script>
     <script src="./js/directive.js"></script>
 </body>
 </html>
