@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.flywaydb:flyway-gradle-plugin:3.2.1'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'org.flywaydb.flyway'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'mysql:mysql-connector-java:5.1.36'
+
+    testCompile 'junit:junit:4.10'
+}
+
+flyway {
+    url = 'jdbc:mysql://localhost:3306/flyway_test?useUnicode=yes&characterEncoding=UTF-8'
+    user = 'root'
+    password = ''
+    outOfOrder = true
+}
