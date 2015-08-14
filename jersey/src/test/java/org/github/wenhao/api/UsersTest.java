@@ -3,6 +3,7 @@ package org.github.wenhao.api;
 import javax.ws.rs.core.Application;
 
 import static org.glassfish.jersey.server.ServerProperties.BV_SEND_ERROR_IN_RESPONSE;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 
 import org.github.wenhao.model.User;
@@ -13,9 +14,6 @@ import org.junit.Test;
 import static com.jayway.restassured.RestAssured.given;
 import static com.jayway.restassured.http.ContentType.JSON;
 import static com.jayway.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
-
-import com.jayway.restassured.RestAssured;
-import com.jayway.restassured.parsing.Parser;
 
 public class UsersTest extends JerseyTest
 {
@@ -68,6 +66,6 @@ public class UsersTest extends JerseyTest
                 .post("/users").
         then()
                 .statusCode(400)
-                .body("[0].message", is("may not be empty"));
+                .body("[0].message", equalTo("user's name shouldn't be empty."));
     }
 }
