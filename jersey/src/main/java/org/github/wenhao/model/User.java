@@ -6,9 +6,9 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class User
 {
-    @NotBlank
+    @NotBlank(message = "{NotBlank.user.name}")
     private String name;
-    @NotNull
+    @NotNull(message = "{NotNull.user.age}")
     private int age;
 
     public User()

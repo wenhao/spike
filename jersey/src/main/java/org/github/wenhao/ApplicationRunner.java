@@ -2,6 +2,7 @@ package org.github.wenhao;
 
 import static org.eclipse.jetty.servlet.ServletContextHandler.NO_SESSIONS;
 import static org.glassfish.jersey.server.ServerProperties.BV_SEND_ERROR_IN_RESPONSE;
+import static org.glassfish.jersey.server.ServerProperties.PROVIDER_SCANNING_RECURSIVE;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -18,6 +19,7 @@ public class ApplicationRunner
         ResourceConfig resourceConfig = new ResourceConfig()
                 .packages("org.github.wenhao.api")
                 .property(BV_SEND_ERROR_IN_RESPONSE, true)
+                .property(PROVIDER_SCANNING_RECURSIVE, true)
                 .registerClasses(JacksonFeature.class, EntityFilteringFeature.class);
 
         ServletContainer servletContainer = new ServletContainer(resourceConfig);

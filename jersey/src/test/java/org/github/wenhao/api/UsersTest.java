@@ -59,15 +59,15 @@ public class UsersTest extends JerseyTest
     @Test
     public void should_raise_error_if_user_name_is_empty_when_create_user()
     {
-        RestAssured.registerParser("application/json", Parser.JSON);
-
         given()
                 .port(9998)
                 .contentType(JSON)
+                .accept(JSON)
                 .body(new User("", 0)).
         when()
                 .post("/users").
         then()
-                .statusCode(400);
+                .statusCode(400)
+                .body("[0].message", is("may not be empty"));
     }
 }

@@ -9,7 +9,6 @@ repositories {
 dependencies {
     compile "org.glassfish.jersey.core:jersey-server:$jerseyVersion"
     compile "org.glassfish.jersey.media:jersey-media-json-jackson:$jerseyVersion"
-    compile "com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.6.1"
     compile "org.glassfish.jersey.ext:jersey-bean-validation:$jerseyVersion"
 
     compile "com.google.guava:guava:$guavaVersion"
