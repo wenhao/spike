@@ -13,8 +13,11 @@ dependencies {
 
     compile "com.google.guava:guava:$guavaVersion"
 
+    // Spring DI
     compile "org.springframework:spring-core:$springVersion"
+    compile "org.glassfish.jersey.ext:jersey-spring3:$jerseyVersion"
 
+    // Embedded Jetty Server
     compile "org.glassfish.jersey.containers:jersey-container-jetty-servlet:$jerseyVersion"
 
     testCompile "org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-jetty:$jerseyVersion"

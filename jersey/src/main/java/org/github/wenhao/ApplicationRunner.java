@@ -11,6 +11,7 @@ import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.message.filtering.EntityFilteringFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.servlet.ServletContainer;
+import org.springframework.web.context.ContextLoaderListener;
 
 public class ApplicationRunner
 {
@@ -27,6 +28,10 @@ public class ApplicationRunner
 
         ServletContextHandler servletContextHandler = new ServletContextHandler(NO_SESSIONS);
         servletContextHandler.setContextPath("/");
+
+        ContextLoaderListener contextLoaderListener = new ContextLoaderListener();
+        servletContextHandler.addEventListener(contextLoaderListener);
+        servletContextHandler.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
 
         servletContextHandler.addServlet(servletHolder, "/rest/*");
 
