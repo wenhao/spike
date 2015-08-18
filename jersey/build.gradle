@@ -26,4 +26,5 @@ dependencies {
     testCompile "org.mockito:mockito-all:$mockitoVersion"
     testCompile "com.jayway.restassured:rest-assured:$restassuredVersion"
     testCompile "com.jayway.restassured:json-schema-validator:$jsonSchemaValidatorVersion"
+    testCompile "org.springframework:spring-test:$springVersion"
 }

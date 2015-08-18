@@ -1,24 +1,36 @@
 package org.github.wenhao.api;
 
-import javax.ws.rs.core.Application;
-
 import static org.glassfish.jersey.server.ServerProperties.BV_SEND_ERROR_IN_RESPONSE;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.mockito.Matchers.anyString;
 
 import org.github.wenhao.model.User;
+import org.github.wenhao.service.UserService;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static com.jayway.restassured.RestAssured.given;
+import static com.jayway.restassured.RestAssured.when;
 import static com.jayway.restassured.http.ContentType.JSON;
 import static com.jayway.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
-public class UsersTest extends JerseyTest
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:testContext.xml")
+public class UsersTest extends JerseySpringTest
 {
+    @Autowired
+    private UserService userService;
+
     @Override
-    protected Application configure()
+    protected ResourceConfig configure()
     {
         return new ResourceConfig(Users.class).property(BV_SEND_ERROR_IN_RESPONSE, true);
     }
@@ -26,6 +38,8 @@ public class UsersTest extends JerseyTest
     @Test
     public void should_be_able_to_get_single_user()
     {
+        Mockito.when(userService.get(anyString())).thenReturn(new User("Eric", 50));
+
         given()
                 .port(9998)
                 .contentType(JSON)
@@ -35,7 +49,7 @@ public class UsersTest extends JerseyTest
         then()
                 .statusCode(200)
                 .body(matchesJsonSchemaInClasspath("user.json"))
-                .body("name", is("jack"));
+                .body("name", is("Eric"));
 
     }
 
