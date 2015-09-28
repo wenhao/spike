@@ -1,6 +1,16 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE")
+    }
+}
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven'
+apply plugin: 'spring-boot'
 
 repositories {
     mavenCentral()
@@ -9,6 +19,9 @@ repositories {
 
 dependencies {
     compile 'org.springframework.integration:spring-integration-kafka:1.2.1.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-web'
 
     testCompile 'junit:junit:4.11'
 }
+
+mainClassName='org.github.wenhao.kafka.Application'
