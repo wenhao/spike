@@ -36,14 +36,14 @@
     </bean>
 
     <bean id="kafkaSpecificEncoder" class="org.springframework.integration.kafka.serializer.avro.AvroSpecificDatumBackedKafkaEncoder">
-        <constructor-arg value="org.github.wenhao.kafka.domain.user.User" />
+        <constructor-arg value="org.github.wenhao.kafka.domain.User" />
     </bean>
 
     <int-kafka:producer-context id="kafkaProducerContext" producer-properties="producerProperties">
         <int-kafka:producer-configurations>
             <int-kafka:producer-configuration broker-list="localhost:9092"
                                               key-class-type="java.lang.String"
-                                              value-class-type="org.github.wenhao.kafka.domain.user.User"
+                                              value-class-type="org.github.wenhao.kafka.domain.User"
                                               topic="test"
                                               key-encoder="kafkaReflectionEncoder"
                                               value-encoder="kafkaSpecificEncoder"/>
