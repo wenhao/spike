@@ -1,9 +1,13 @@
 buildscript {
     repositories {
         mavenCentral()
+        maven { url 'https://repo.spring.io/simple/ext-release-local' }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE")
+        classpath 'org.apache.maven:maven-artifact:2.2.1'
+        classpath 'org.apache.avro:avro-compiler:1.7.3'
+        classpath "org.apache.avro:avro-gradle-plugin:1.7.2"
     }
 }
 
@@ -11,17 +15,64 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven'
 apply plugin: 'spring-boot'
+apply plugin: 'avro-gradle-plugin'
 
 repositories {
     mavenCentral()
     jcenter()
 }
 
-dependencies {
-    compile 'org.springframework.integration:spring-integration-kafka:1.2.1.RELEASE'
-    compile 'org.springframework.boot:spring-boot-starter-web'
+defaultTasks 'clean', 'build'
 
-    testCompile 'junit:junit:4.11'
+ext {
+    avroTaskGroup = "Avro"
+    avroSource = "schemas"
+    avroDest = "target/generated-avro-sources/main/java"
 }
 
-mainClassName='org.github.wenhao.kafka.Application'
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile('org.springframework.integration:spring-integration-kafka:1.2.1.RELEASE') {
+        exclude module: 'log4j'
+        exclude module: 'jms'
+        exclude module: 'jmxtools'
+        exclude module: 'jmxri'
+    }
+    compile("log4j:log4j:1.2.15") {
+        exclude module: 'mail'
+        exclude module: 'jms'
+        exclude module: 'jmx'
+        exclude module: 'jmxtools'
+        exclude module: 'jmxri'
+    }
+    compile "commons-logging:commons-logging:1.1.1"
+    compile('org.apache.avro:avro:1.7.7') {
+        exclude module: 'slf4j-log4j12'
+    }
+}
+
+compileAvro.group = avroTaskGroup
+compileAvro.description = "Generates Java code from avro schema"
+compileAvro.source = avroSource
+compileAvro.destinationDir = file(avroDest)
+
+task cleanAvro(type: Delete) {
+    group = avroTaskGroup
+    description = "deletes generated avro code"
+    delete avroDest
+}
+
+compileJava.dependsOn compileAvro
+
+sourceSets {
+    main {
+        java {
+            srcDir avroDest
+        }
+        resources {
+            srcDir avroSource
+        }
+    }
+}
+
+mainClassName = 'org.github.wenhao.kafka.Application'
