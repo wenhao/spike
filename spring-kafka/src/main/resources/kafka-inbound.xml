@@ -36,7 +36,7 @@
 
     <bean id="kafkaSpecificDecoder"
           class="org.springframework.integration.kafka.serializer.avro.AvroSpecificDatumBackedKafkaDecoder">
-        <constructor-arg value="org.github.wenhao.kafka.domain.User"/>
+        <constructor-arg value="org.github.wenhao.kafka.domain.user.User"/>
     </bean>
 
     <int-kafka:consumer-context id="consumerContext" consumer-timeout="4000" zookeeper-connect="zookeeperConnect"

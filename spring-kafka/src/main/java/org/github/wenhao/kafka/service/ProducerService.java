@@ -19,7 +19,11 @@ public class ProducerService {
     }
 
     public void produce(User user) {
-        Message<User> message = MessageBuilder.withPayload(user)
+        org.github.wenhao.kafka.domain.user.User specificUser = org.github.wenhao.kafka.domain.user.User.newBuilder()
+                .setName(user.getName())
+                .setAge(user.getAge())
+                .build();
+        Message<org.github.wenhao.kafka.domain.user.User> message = MessageBuilder.withPayload(specificUser)
                 .setHeader(KafkaHeaders.MESSAGE_KEY, "user")
                 .setHeader(KafkaHeaders.TOPIC, "test")
                 .build();
