@@ -14,9 +14,15 @@
         <int:queue/>
     </int:channel>
 
+    <!--<int:publish-subscribe-channel id="inputToKafka"/>-->
+
+    <int:poller default="true" id="default" fixed-rate="3" time-unit="MILLISECONDS" />
+
     <int-kafka:outbound-channel-adapter id="kafkaOutboundChannelAdapter"
-                                        kafka-producer-context-ref="kafkaProducerContext" channel="inputToKafka">
-        <int:poller fixed-delay="1000" time-unit="MILLISECONDS" receive-timeout="0" task-executor="taskExecutor"/>
+                                        auto-startup="true"
+                                        kafka-producer-context-ref="kafkaProducerContext"
+                                        channel="inputToKafka"
+                                        topic="test">
     </int-kafka:outbound-channel-adapter>
 
     <task:executor id="taskExecutor" pool-size="5" keep-alive="120" queue-capacity="500"/>

@@ -13,7 +13,7 @@
 
     <int-kafka:inbound-channel-adapter id="kafkaInboundChannelAdapter"
                                        kafka-consumer-context-ref="consumerContext"
-                                       auto-startup="false"
+                                       auto-startup="true"
                                        channel="inputFromKafka">
         <int:poller fixed-delay="10" time-unit="MILLISECONDS" max-messages-per-poll="5"/>
     </int-kafka:inbound-channel-adapter>
@@ -39,10 +39,10 @@
         <constructor-arg value="org.github.wenhao.kafka.domain.user.User"/>
     </bean>
 
-    <int-kafka:consumer-context id="consumerContext" consumer-timeout="4000" zookeeper-connect="zookeeperConnect"
+    <int-kafka:consumer-context id="consumerContext" consumer-timeout="1000" zookeeper-connect="zookeeperConnect"
                                 consumer-properties="consumerProperties">
         <int-kafka:consumer-configurations>
-            <int-kafka:consumer-configuration group-id="default" max-messages="5000"
+            <int-kafka:consumer-configuration group-id="default" max-messages="5"
                                               key-decoder="kafkaReflectionDecoder"
                                               value-decoder="kafkaSpecificDecoder">
                 <int-kafka:topic id="test" streams="4"/>
