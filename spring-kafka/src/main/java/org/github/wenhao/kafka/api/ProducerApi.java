@@ -25,9 +25,9 @@ public class ProducerApi {
     }
 
     @RequestMapping(method = POST)
-    public ResponseEntity produce(@RequestBody User user) {
+    public ResponseEntity<org.github.wenhao.kafka.domain.user.User> produce(@RequestBody User user) {
         producerService.produce(user);
-        consumerService.receive();
-        return ResponseEntity.ok(user);
+        org.github.wenhao.kafka.domain.user.User receive = consumerService.receive();
+        return ResponseEntity.ok(receive);
     }
 }
