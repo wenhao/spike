@@ -1,7 +1,7 @@
 @namespace("org.github.wenhao.kafka.avro")
 protocol UserAvroProtocol{
-record UserAvro {
-	string name;
-	int age;
-}
+	record UserAvro {
+		string name;
+		int age;
+	}
 }

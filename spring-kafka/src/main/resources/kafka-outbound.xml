@@ -14,8 +14,6 @@
         <int:queue/>
     </int:channel>
 
-    <!--<int:publish-subscribe-channel id="inputToKafka"/>-->
-
     <int:poller default="true" id="default" fixed-rate="3" time-unit="MILLISECONDS" />
 
     <int-kafka:outbound-channel-adapter id="kafkaOutboundChannelAdapter"
