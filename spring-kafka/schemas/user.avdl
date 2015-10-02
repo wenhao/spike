@@ -1,6 +1,6 @@
-@namespace("org.github.wenhao.kafka.domain.user")
-protocol UserProtocol{
-record User {
+@namespace("org.github.wenhao.kafka.avro")
+protocol UserAvroProtocol{
+record UserAvro {
 	string name;
 	int age;
 }

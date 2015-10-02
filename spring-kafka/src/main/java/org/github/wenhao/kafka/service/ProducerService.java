@@ -2,6 +2,7 @@ package org.github.wenhao.kafka.service;
 
 import javax.annotation.Resource;
 
+import org.github.wenhao.kafka.avro.UserAvro;
 import org.github.wenhao.kafka.domain.User;
 import org.springframework.integration.kafka.support.KafkaHeaders;
 import org.springframework.integration.support.MessageBuilder;
@@ -16,11 +17,11 @@ public class ProducerService {
     private MessageChannel inputToKafka;
 
     public void produce(User user) {
-        org.github.wenhao.kafka.domain.user.User specificUser = org.github.wenhao.kafka.domain.user.User.newBuilder()
+        UserAvro specificUser = UserAvro.newBuilder()
                 .setName(user.getName())
                 .setAge(user.getAge())
                 .build();
-        Message<org.github.wenhao.kafka.domain.user.User> message = MessageBuilder.withPayload(specificUser)
+        Message<UserAvro> message = MessageBuilder.withPayload(specificUser)
                 .setHeader(KafkaHeaders.MESSAGE_KEY, "user")
                 .setHeader(KafkaHeaders.TOPIC, "test")
                 .build();
