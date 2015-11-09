@@ -9,11 +9,9 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.github.wenhao.quartz.service.ScheduleService;
 
-@Service
 public class OrderJob implements Job {
 
     public static final String ORDER_ID = "orderId";
