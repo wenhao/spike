@@ -17,6 +17,13 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile("org.springframework:spring-context-support")
     compile("org.quartz-scheduler:quartz:2.2.2")
+    compile("com.h2database:h2:1.4.190")
     testCompile("junit:junit")
+}
+
+bootRun {
+    addResources = true
 }
