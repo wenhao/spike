@@ -25,9 +25,9 @@ public class ProducerApi {
     }
 
     @RequestMapping(method = POST)
-    public ResponseEntity<User> produce(@RequestBody User user) {
+    public ResponseEntity<String> produce(@RequestBody User user) {
         producerService.produce(user);
-        User receive = consumerService.receive();
-        return ResponseEntity.ok(receive);
+        String message = consumerService.receive();
+        return ResponseEntity.ok(message);
     }
 }

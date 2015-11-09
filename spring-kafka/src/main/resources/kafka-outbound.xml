@@ -17,7 +17,7 @@
     <int:poller default="true" id="default" fixed-rate="3" time-unit="MILLISECONDS" />
 
     <int-kafka:outbound-channel-adapter id="kafkaOutboundChannelAdapter"
-                                        auto-startup="true"
+                                        auto-startup="false"
                                         kafka-producer-context-ref="kafkaProducerContext"
                                         channel="inputToKafka"
                                         topic="test">

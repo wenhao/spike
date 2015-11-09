@@ -15,8 +15,12 @@
         <constructor-arg type="java.lang.Class" value="java.lang.String"/>
     </bean>
 
+    <!--<bean id="kafkaSpecificDecoder" class="org.springframework.integration.kafka.serializer.avro.AvroSpecificDatumBackedKafkaDecoder">-->
+        <!--<constructor-arg value="org.github.wenhao.kafka.avro.UserAvro"/>-->
+    <!--</bean>-->
+
     <bean id="kafkaSpecificDecoder" class="org.springframework.integration.kafka.serializer.avro.AvroSpecificDatumBackedKafkaDecoder">
-        <constructor-arg value="org.github.wenhao.kafka.avro.UserAvro"/>
+        <constructor-arg value="java.lang.String"/>
     </bean>
 
     <int-kafka:zookeeper-connect id="zookeeperConnect" zk-connect="localhost:2181" zk-connection-timeout="6000"
@@ -38,6 +42,6 @@
             key-decoder="kafkaReflectionDecoder"
             payload-decoder="kafkaSpecificDecoder"
             max-fetch="100"
-            auto-startup="true"
+            auto-startup="false"
             topics="test"/>
 </beans>
