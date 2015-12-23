@@ -41,25 +41,28 @@ echo "create database $DBNAME" | mysql -u root -p$DBPASSWORD
 
 # Get WordPress and set it up
 cd /var/www/html
-#rm index.html
-#wp core download --allow-root
-#wp core config --dbname='wordpress' --dbuser='root' --dbpass='vagrant' --allow-root
-#wp core install --url=localhost:80 --title='WordPress' --admin_user=admin --admin_password='admin' --admin_email="admin@wordpress.localhost" --allow-root
-#wp plugin install advanced-custom-fields --activate --allow-root
-#wp plugin install acf-field-date-time-picker --activate --allow-root
-#wp plugin install timber-library --activate --allow-root
-#wp plugin install debug-bar --activate --allow-root
-#wp plugin install pronamic-google-maps --activate --allow-root
-#wp plugin install piklist --activate --allow-root
-#wp plugin install linkedin-login --activate --allow-root
-#wp plugin install wp-mail-smtp --activate --allow-root
-#wp theme activate salient --allow-root
+rm index.html
+wp core download --allow-root
+wp core config --dbname='wordpress' --dbuser='root' --dbpass='vagrant' --allow-root --extra-php <<PHP
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+PHP
+wp core install --url=localhost --title='WordPress' --admin_user=admin --admin_password='admin' --admin_email="admin@wordpress.localhost" --allow-root
+# wp plugin install advanced-custom-fields --activate --allow-root
+# wp plugin install acf-field-date-time-picker --activate --allow-root
+# wp plugin install timber-library --activate --allow-root
+# wp plugin install debug-bar --activate --allow-root
+# wp plugin install pronamic-google-maps --activate --allow-root
+# wp plugin install piklist --activate --allow-root
+# wp plugin install linkedin-login --activate --allow-root
+# wp plugin install wp-mail-smtp --activate --allow-root
+# wp theme activate salient --allow-root
 
 # Fix permissions for /var/www -folder
-#sudo touch /var/www/html/.htaccess
-#chown -R www-data /var/www
-#chgrp -R www-data /var/www
-#chmod -R 775 /var/www
+sudo touch /var/www/html/.htaccess
+chown -R www-data /var/www
+chgrp -R www-data /var/www
+chmod -R 775 /var/www
 
 service mysql restart
 service apache2 restart
