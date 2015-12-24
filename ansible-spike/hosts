@@ -1,2 +1,2 @@
 [prod]
-120.27.193.44
+120.27.193.44 ansible_ssh_user=root
