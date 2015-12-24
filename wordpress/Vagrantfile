@@ -13,5 +13,5 @@ Vagrant.configure(2) do |config|
   forward_port[80, 9999]
   forward_port[3306]
 
-  config.vm.synced_folder "./salient", "/var/www/html/wp-content/themes/salient", owner: "www-data", group: "www-data",
+  config.vm.synced_folder "./salient", "/var/www/html/wp-content/themes/salient", owner: "www-data", group: "www-data"
 end
