@@ -31,20 +31,14 @@ public class ExportExcelServiceTest {
 
     private List<Employee> getEmployees() {
         List<Employee> employees = new ArrayList<>();
-        Employee employee = new Employee();
-        employee.setName("Jack");
-        employee.setBirthDate(new Date());
-        employee.setPayment(new BigDecimal(1234.4576));
-        employee.setBonus(new BigDecimal(23.123));
-
-        Employee employee2 = new Employee();
-        employee2.setName("Eric");
-        employee2.setBirthDate(new Date());
-        employee2.setPayment(new BigDecimal(987.4576));
-        employee2.setBonus(new BigDecimal(423.123));
-
-        employees.add(employee);
-        employees.add(employee2);
+        for(int i=0; i < 10000; i++){
+            Employee employee = new Employee();
+            employee.setName("Jack" + i);
+            employee.setBirthDate(new Date());
+            employee.setBonus(new BigDecimal(1000.234 + i));
+            employee.setPayment(new BigDecimal(1234.4576 + 1));
+            employees.add(employee);
+        }
         return employees;
     }
 }
