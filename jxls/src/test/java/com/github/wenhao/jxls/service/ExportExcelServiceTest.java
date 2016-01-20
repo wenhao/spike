@@ -1,6 +1,9 @@
 package com.github.wenhao.jxls.service;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,8 +12,8 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
+import org.apache.poi.ss.usermodel.Workbook;
 import org.junit.Test;
-import org.omg.CORBA.portable.OutputStream;
 
 import com.github.wenhao.jxls.domain.Employee;
 
@@ -23,15 +26,19 @@ public class ExportExcelServiceTest {
         String template = "employee.xls";
 
         // when
-        OutputStream outputStream = exportExcelService.export(employees, template);
+        Workbook workbook = exportExcelService.export(employees, template);
 
         // then
-        assertThat(outputStream, notNullValue());
+        assertThat(workbook, notNullValue());
+        FileOutputStream fileOutputStream = new FileOutputStream("result.xls");
+        workbook.write(fileOutputStream);
+        fileOutputStream.flush();
+        fileOutputStream.close();
     }
 
     private List<Employee> getEmployees() {
         List<Employee> employees = new ArrayList<>();
-        for(int i=0; i < 10000; i++){
+        for(int i=0; i < 100; i++){
             Employee employee = new Employee();
             employee.setName("Jack" + i);
             employee.setBirthDate(new Date());
