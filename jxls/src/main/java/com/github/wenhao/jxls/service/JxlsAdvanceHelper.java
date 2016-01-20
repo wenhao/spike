@@ -30,14 +30,13 @@ public class JxlsAdvanceHelper {
         areaBuilder.setTransformer(transformer);
         List<Area> xlsAreaList = areaBuilder.build();
         for (Area xlsArea : xlsAreaList) {
-            xlsArea.applyAt(
-                    new CellRef(xlsArea.getStartCellRef().getCellName()), context);
+            xlsArea.applyAt(new CellRef(xlsArea.getStartCellRef().getCellName()), context);
             if (processFormulas) {
                 setFormulaProcessor(xlsArea);
                 xlsArea.processFormulas();
             }
         }
-       return transformer.getWorkbook();
+        return transformer.getWorkbook();
     }
 
     private Area setFormulaProcessor(Area xlsArea) {
