@@ -1,0 +1,3 @@
+---
+- name: run this command
+  shell: echo "hello..."
