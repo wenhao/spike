@@ -37,7 +37,7 @@ public class ExportExcelServiceTest {
 
     private List<Good> getEmployees() {
         List<Good> goods = new ArrayList<>();
-        for(int i=0; i < 100; i++){
+        for(int i=0; i < 100000; i++){
             Good good = new Good();
             good.setName("三星（SAMSUNG）S27D590C 27英寸曲面屏LED背光液晶显示器" + i);
             good.setProductionDate(new Date());
