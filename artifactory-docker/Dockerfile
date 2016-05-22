@@ -1,4 +1,4 @@
-FROM docker-dev-local2.121.199.66.97/ubuntu:lucid
+FROM docker-dev-local2.121.199.66.97/hello-world:latest
 
 MAINTAINER wenhao@126.com
 
