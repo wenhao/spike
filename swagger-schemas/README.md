@@ -15,3 +15,16 @@
 2. common.yaml
 3. XXX-paths.yaml
 4. XXX-definitions.yaml
+
+info.yaml
+paths
+  feature-name
+    XXX.yaml
+    XXX-{id}.yaml
+definitions
+  common
+    XXX.yaml
+  feature-name
+    XXX.yaml
+parameters
+responses    
