@@ -1,0 +1,16 @@
+get:
+  summary: Gets a person
+  description: Returns a single person for its username
+  parameters:
+    - name: username
+      in: path
+      required: true
+      description: the person's username
+      type: string
+  responses:
+    200:
+      description: A person
+      schema:
+        $ref: "../definitions/Person.yaml"
+    404:
+      description: the person does not exist

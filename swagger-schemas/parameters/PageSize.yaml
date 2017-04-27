@@ -1,0 +1,5 @@
+name: pageSize
+in: query
+description: Number of persons returned
+type: integer
+default: 20

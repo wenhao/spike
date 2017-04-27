@@ -1,0 +1,9 @@
+properties:
+  totalItems:
+    type: integer
+  totalPages:
+    type: integer
+  pageSize:
+    type: integer
+  currentPage:
+    type: integer

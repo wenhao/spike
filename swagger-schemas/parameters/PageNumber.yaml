@@ -1,0 +1,5 @@
+name: pageNumber
+in: query
+description: page Number
+type: integer
+default: 0
