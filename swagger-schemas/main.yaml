@@ -15,6 +15,6 @@ produces:
 
 paths:
   /persons:
-    $ref: 'paths/persons.yaml'
+    $ref: './paths/persons.yaml'
   /persons/{username}:
-    $ref: 'paths/persons-{username}.yaml'
+    $ref: './paths/persons-{username}.yaml'

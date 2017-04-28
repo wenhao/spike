@@ -1,9 +1,7 @@
 properties:
   items:
     type: array
-    minItems: 10
-    maxItems: 100
-    uniqueItems: true
-    $ref: 'definitions/Person.yaml'
+    items:
+      $ref: './Person.yaml'
   Paging:
-    $ref: 'definitions/Paging.yaml'
+    $ref: './Paging.yaml'

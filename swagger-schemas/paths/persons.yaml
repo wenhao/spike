@@ -4,8 +4,8 @@ get:
   produces:
     - application/json
   parameters:
-    - $ref: '../parameters/PageSize.yaml'
-    - $ref: '../parameters/PageNumber.yaml'
+    - $ref: './parameters/PageSize.yaml'
+    - $ref: './parameters/PageNumber.yaml'
     - name: User-Agent
       type: string
       in: header
@@ -14,7 +14,7 @@ get:
     200:
       description: A list of person
       schema:
-        $ref: "../definitions/Person.yaml"
+        $ref: "./definitions/Persons.yaml"
 post:
   summary: create a person
   description: Adds a new person to the persons list.
@@ -23,11 +23,11 @@ post:
       in: body
       description: The person to create.
       schema:
-        $ref: "../definitions/Person.yaml"
+        $ref: "./definitions/Person.yaml"
   responses:
     200:
       description: Person successfully created.
     400:
       description: Person couldn't have been created.
     500:
-      $ref: '../responses/Standard500ErrorResponse.yaml'
+      $ref: './responses/Standard500ErrorResponse.yaml'

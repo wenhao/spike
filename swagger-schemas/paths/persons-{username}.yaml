@@ -11,6 +11,6 @@ get:
     200:
       description: A person
       schema:
-        $ref: "../definitions/Person.yaml"
+        $ref: "./definitions/Person.yaml"
     404:
       description: the person does not exist
