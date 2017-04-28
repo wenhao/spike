@@ -1,4 +1,6 @@
 get:
+  tags:
+    - Persons
   summary: Gets some persons
   description: Returns a list containing all persons.
   produces:
@@ -16,6 +18,8 @@ get:
       schema:
         $ref: "./definitions/Persons.yaml"
 post:
+  tags:
+    - Persons
   summary: create a person
   description: Adds a new person to the persons list.
   parameters:

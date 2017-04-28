@@ -1,4 +1,6 @@
 get:
+  tags:
+    - Persons
   summary: Gets a person
   description: Returns a single person for its username
   parameters:
