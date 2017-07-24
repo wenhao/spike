@@ -7,7 +7,17 @@ public class CreateRequest {
 
     @NotBlank(message = "{NotBlank.createRequest.name}")
     private String name;
+    @NotBlank
+    private String id;
     private int age;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
