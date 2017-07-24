@@ -6,8 +6,11 @@ import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorProperties;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -18,16 +21,20 @@ import java.util.Map;
 
 import static java.util.stream.Collectors.toList;
 
+@Controller
+@RequestMapping("${server.error.path:${error.path:/error}}")
 public class BasedErrorController extends BasicErrorController {
 
     private static final String ERROR_ATTRIBUTE = DefaultErrorAttributes.class.getName()
             + ".ERROR";
+    private ErrorProperties errorProperties;
 
     public BasedErrorController(ErrorAttributes errorAttributes, ErrorProperties errorProperties) {
         super(errorAttributes, errorProperties);
     }
 
-    @Override
+    @RequestMapping
+    @ResponseBody
     public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
         RequestAttributes requestAttributes = new ServletRequestAttributes(request);
         MethodArgumentNotValidException exception = (MethodArgumentNotValidException) requestAttributes.getAttribute(ERROR_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST);
@@ -39,5 +46,10 @@ public class BasedErrorController extends BasicErrorController {
             put("errors", errorMessages);
         }};
         return new ResponseEntity<>(errors, getStatus(request));
+    }
+
+    @Override
+    public String getErrorPath() {
+        return this.errorProperties.getPath();
     }
 }
