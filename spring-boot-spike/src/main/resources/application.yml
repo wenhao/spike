@@ -1,7 +1,4 @@
 spring:
-  jackson:
-    deserialization:
-      fail-on-unknown-properties: true
   messages:
     basename: ValidationMessages
     encoding: UTF-8

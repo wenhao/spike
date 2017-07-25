@@ -7,7 +7,7 @@ public class CreateRequest {
 
     @NotBlank(message = "{NotBlank.createRequest.name}")
     private String name;
-    @NotBlank
+    @NotBlank(message = "{NotBlank.createRequest.id}")
     private String id;
     private int age;
 

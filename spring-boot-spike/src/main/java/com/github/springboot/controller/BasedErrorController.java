@@ -1,16 +1,12 @@
 package com.github.springboot.controller;
 
-import org.springframework.boot.autoconfigure.web.BasicErrorController;
-import org.springframework.boot.autoconfigure.web.DefaultErrorAttributes;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
-import org.springframework.boot.autoconfigure.web.ErrorProperties;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -21,35 +17,34 @@ import java.util.Map;
 
 import static java.util.stream.Collectors.toList;
 
-@Controller
+@RestController
 @RequestMapping("${server.error.path:${error.path:/error}}")
-public class BasedErrorController extends BasicErrorController {
+public class BasedErrorController implements ErrorController {
 
-    private static final String ERROR_ATTRIBUTE = DefaultErrorAttributes.class.getName()
-            + ".ERROR";
-    private ErrorProperties errorProperties;
+    private ErrorAttributes errorAttributes;
 
-    public BasedErrorController(ErrorAttributes errorAttributes, ErrorProperties errorProperties) {
-        super(errorAttributes, errorProperties);
+    @Autowired
+    public BasedErrorController(ErrorAttributes errorAttributes) {
+        this.errorAttributes = errorAttributes;
     }
 
     @RequestMapping
-    @ResponseBody
-    public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
+    public ResponseEntity error(HttpServletRequest request) {
         RequestAttributes requestAttributes = new ServletRequestAttributes(request);
-        MethodArgumentNotValidException exception = (MethodArgumentNotValidException) requestAttributes.getAttribute(ERROR_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST);
-        BindingResult bindingResult = exception.getBindingResult();
-        List<String> errorMessages = bindingResult.getAllErrors().stream()
-                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+        Map<String, Object> errorAttributes = this.errorAttributes.getErrorAttributes(requestAttributes, false);
+        List<FieldError> errors = (List) errorAttributes.get("errors");
+        List<String> errorMessages = errors.stream()
+                .map(error -> error.getDefaultMessage())
                 .collect(toList());
-        Map<String, Object> errors = new HashMap<String, Object>() {{
+        int status = (int) errorAttributes.get("status");
+        Map<String, List<String>> result = new HashMap<String, List<String>>() {{
             put("errors", errorMessages);
         }};
-        return new ResponseEntity<>(errors, getStatus(request));
+        return ResponseEntity.status(status).body(request);
     }
 
     @Override
     public String getErrorPath() {
-        return this.errorProperties.getPath();
+        return "/error";
     }
 }
