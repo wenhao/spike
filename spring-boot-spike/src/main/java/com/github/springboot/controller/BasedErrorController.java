@@ -40,7 +40,7 @@ public class BasedErrorController implements ErrorController {
         Map<String, List<String>> result = new HashMap<String, List<String>>() {{
             put("errors", errorMessages);
         }};
-        return ResponseEntity.status(status).body(request);
+        return ResponseEntity.status(status).body(result);
     }
 
     @Override
