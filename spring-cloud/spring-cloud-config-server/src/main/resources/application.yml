@@ -10,6 +10,7 @@ spring:
           username: wenhao@126.com
           password: 1qaz!QAZ
           clone-on-start: true
+          force-pull: true
   security:
     user:
       name: admin
