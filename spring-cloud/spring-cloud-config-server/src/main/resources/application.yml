@@ -11,6 +11,7 @@ spring:
           password: 1qaz!QAZ
           clone-on-start: true
           force-pull: true
+          basedir: /opt/spring-config-server/git
   security:
     user:
       name: admin
