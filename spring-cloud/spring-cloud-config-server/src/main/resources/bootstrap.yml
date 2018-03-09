@@ -13,8 +13,6 @@ spring:
           search-paths: 'spring-cloud/spring-cloud-config-server/config/{application}'
           timeout: 60
   security:
-    basic:
-      enabled: true
     user:
       name: admin
       password: password
