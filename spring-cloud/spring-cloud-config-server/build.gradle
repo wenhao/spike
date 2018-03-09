@@ -1,11 +1,9 @@
 buildscript {
     dependencies {
         classpath "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
+        classpath "com.palantir.gradle.docker:gradle-docker:0.13.0"
     }
     repositories {
-        maven {
-          url 'https://repo.spring.io/libs-milestone'
-        }
         jcenter()
     }
 }
@@ -20,6 +18,9 @@ repositories {
 apply plugin: "io.spring.dependency-management"
 apply plugin: "java"
 apply plugin: "idea"
+apply plugin: "com.palantir.docker"
+
+version="1.0.0"
 
 dependencyManagement {
      imports {
@@ -28,6 +29,14 @@ dependencyManagement {
 }
 
 dependencies {
-    compile 'org.springframework.cloud:spring-cloud-starter-config'
+    compile 'org.springframework.cloud:spring-cloud-config-server'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+
     compile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+docker {
+    name "wenhao/${jar.baseName}:${jar.version}"
+    files jar.archivePath
+    buildArgs(['JAR_FILE': "${jar.archiveName}"])
 }
