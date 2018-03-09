@@ -1,0 +1,4 @@
+env: dev
+username: spring-config-client
+password: 12345
+key: value

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/wenhao/spike.git
+          username: wenhao@126.com
+          password: 1qaz!QAZ
+          clone-on-start: true
+          force-pull: true
+          search-paths: spring-cloud/spring-cloud-config-server/config
+#  security:
+#    user:
+#      name: admin
+#      password: password
