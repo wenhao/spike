@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SpringConfig {
 
-    @Value("username")
+    @Value("${username}")
     private String username;
 
     public String getUsername() {

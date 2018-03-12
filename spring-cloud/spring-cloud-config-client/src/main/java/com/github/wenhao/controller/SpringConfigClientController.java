@@ -18,6 +18,6 @@ public class SpringConfigClientController {
 
     @GetMapping(path = "/username")
     public ResponseEntity get() {
-        return ResponseEntity.ok(springConfig.getUsername());
+        return ResponseEntity.ok("username: " + springConfig.getUsername());
     }
 }

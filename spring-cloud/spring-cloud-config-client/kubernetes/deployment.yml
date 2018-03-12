@@ -19,7 +19,7 @@ spec:
           image: wenhao/spring-cloud-config-client:1.0.0
           env:
             - name: CONFIG_SERVER_URL
-              value: "spring-cloud-config-server-service.spring-cloud"
+              value: "http://spring-cloud-config-server-service.spring-cloud"
             - name: CONFIG_SERVER_PORT
               value: "8888"
           ports:
