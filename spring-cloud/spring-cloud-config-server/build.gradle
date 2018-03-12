@@ -1,5 +1,6 @@
 buildscript {
     dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
         classpath "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
         classpath "com.palantir.gradle.docker:gradle-docker:0.13.0"
     }
@@ -19,8 +20,11 @@ apply plugin: "io.spring.dependency-management"
 apply plugin: "java"
 apply plugin: "idea"
 apply plugin: "com.palantir.docker"
+apply plugin: 'org.springframework.boot'
 
-version="1.0.0"
+version = '1.0.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencyManagement {
      imports {
