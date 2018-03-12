@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: spring-cloud-config-client-service
+  labels:
+    app: spring-cloud-config-client
+spec:
+  selector:
+    app: spring-cloud-config-client
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

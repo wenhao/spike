@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-cloud-config-client-deployment
+  labels:
+    app: spring-cloud-config-client
+spec:
+  selector:
+    matchLabels:
+      app: spring-cloud-config-client
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spring-cloud-config-client
+    spec:
+      containers:
+        - name: config-client
+          image: wenhao/spring-cloud-config-client:1.0.0
+          env:
+            - name: CONFIG_SERVER_URL
+              value: "spring-cloud-config-server-service.spring-cloud"
+            - name: CONFIG_SERVER_PORT
+              value: "8888"
+          ports:
+            - containerPort: 8080

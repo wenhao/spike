@@ -1,8 +1,10 @@
+server:
+  port: 8080
 spring:
   application:
     name: spring-config-client
   cloud:
     config:
-      url: 'http://locahost:8888'
+      url: "${CONFIG_SERVER_URL}:${CONFIG_SERVER_PORT}"
       username: 'admin'
       password: 'password'
