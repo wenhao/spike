@@ -1,5 +1,5 @@
 env: dev
-username: spring-config-client
+username: spring-config-client2
 password: '{cipher}b81d35aef445a502784c6293d3b59d2fa0297f666c8e5b8bd34876bead494547'
 key: value
 application:
