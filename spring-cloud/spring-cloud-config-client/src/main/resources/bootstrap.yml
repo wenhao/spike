@@ -1,8 +1,10 @@
+server:
+  port: 8080
 spring:
   application:
     name: spring-config-client
   profiles:
-    active: dev
+    active: "${SPRING_PROFILES_ACTIVE}"
   cloud:
     config:
       uri: "${CONFIG_SERVER_URL}:${CONFIG_SERVER_PORT}"

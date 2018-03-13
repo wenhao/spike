@@ -1,3 +1,6 @@
 env: st
 username: spring-config-client
 password: 12345
+application:
+  kubernetes:
+    env: ST

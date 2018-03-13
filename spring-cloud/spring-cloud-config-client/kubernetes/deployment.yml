@@ -18,6 +18,8 @@ spec:
         - name: config-client
           image: wenhao/spring-cloud-config-client:1.0.0
           env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "dev"
             - name: CONFIG_SERVER_URL
               value: "http://spring-cloud-config-server-service.spring-cloud"
             - name: CONFIG_SERVER_PORT
