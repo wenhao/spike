@@ -10,7 +10,7 @@ spring:
           password: 1qaz!QAZ
           clone-on-start: true
           force-pull: true
-          search-paths: 'spring-cloud/spring-cloud-config-server/config/{application}/{profile}'
+          search-paths: 'spring-cloud/spring-cloud-config-server/config/{application}'
           timeout: 60
         encrypt:
           enabled: false
