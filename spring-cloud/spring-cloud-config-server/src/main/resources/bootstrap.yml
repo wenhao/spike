@@ -12,7 +12,12 @@ spring:
           force-pull: true
           search-paths: 'spring-cloud/spring-cloud-config-server/config/{application}'
           timeout: 60
+        encrypt:
+          enabled: false
   security:
     user:
       name: admin
       password: password
+
+#encrypt:
+#  key: devops
