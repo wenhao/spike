@@ -1,8 +1,8 @@
 env: dev
 username: spring-config-client
-password: '{cipher}b81d35aef445a502784c6293d3b59d2fa0297f666c8e5b8bd34876bead494547'
+password: '{cipher}{key:devops}b81d35aef445a502784c6293d3b59d2fa0297f666c8e5b8bd34876bead494547'
 key: value
 application:
   kubernetes:
     env: DEV
-    password: dev-password
+    password: '{cipher}{key:devops2}26fff3692c9eb557b52266308f6110d4d4ebab719556bb631ecb660d66e8168e'
