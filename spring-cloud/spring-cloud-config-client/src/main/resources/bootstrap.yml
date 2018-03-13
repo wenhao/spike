@@ -10,5 +10,3 @@ spring:
       uri: "${CONFIG_SERVER_URL}:${CONFIG_SERVER_PORT}"
       username: 'admin'
       password: 'password'
-#encrypt:
-#  key: devops

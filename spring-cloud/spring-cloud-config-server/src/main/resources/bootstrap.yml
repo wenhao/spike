@@ -18,6 +18,3 @@ spring:
     user:
       name: admin
       password: password
-
-#encrypt:
-#  key: devops
