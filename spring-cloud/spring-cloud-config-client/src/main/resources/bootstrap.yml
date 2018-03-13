@@ -16,3 +16,10 @@ spring:
         max-interval: 5000
 encrypt:
   key: devops
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  server:
+    port: 8081
