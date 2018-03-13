@@ -16,7 +16,3 @@ spring:
         max-interval: 5000
 encrypt:
   key: devops
-
-management:
-  security:
-    enabled: false
