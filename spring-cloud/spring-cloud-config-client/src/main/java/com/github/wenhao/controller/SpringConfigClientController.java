@@ -24,7 +24,7 @@ public class SpringConfigClientController {
         return ResponseEntity.ok(String.format("username and password: %s:%s", springConfig.getUsername(), springConfig.getPassword()));
     }
 
-    @GetMapping(path = "/env")
+    @GetMapping(path = "/kubernetes")
     public ResponseEntity getEnv() {
         return ResponseEntity.ok("env: " + applicationConfig.getEnv());
     }
