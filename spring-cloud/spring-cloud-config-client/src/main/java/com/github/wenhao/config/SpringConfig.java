@@ -2,7 +2,6 @@ package com.github.wenhao.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.validation.annotation.Validated;
 
 @Configuration
 public class SpringConfig {

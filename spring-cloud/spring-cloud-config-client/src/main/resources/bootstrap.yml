@@ -11,5 +11,8 @@ spring:
       username: 'admin'
       password: 'password'
       fail-fast: true
+      retry:
+        max-attempts: 10
+        max-interval: 5000
 encrypt:
   key: devops
