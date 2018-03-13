@@ -18,3 +18,8 @@ spring:
     user:
       name: admin
       password: password
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
