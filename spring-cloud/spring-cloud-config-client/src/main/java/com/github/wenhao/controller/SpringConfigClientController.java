@@ -19,9 +19,9 @@ public class SpringConfigClientController {
         this.applicationConfig = applicationConfig;
     }
 
-    @GetMapping(path = "/username")
+    @GetMapping(path = "/account")
     public ResponseEntity get() {
-        return ResponseEntity.ok("username: " + springConfig.getUsername());
+        return ResponseEntity.ok(String.format("username and password: %s:%s", springConfig.getUsername(), springConfig.getPassword()));
     }
 
     @GetMapping(path = "/env")
