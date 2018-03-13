@@ -5,4 +5,4 @@ key: value
 application:
   kubernetes:
     env: DEV
-    password: '{cipher}26fff3692c9eb557b52266308f6110d4d4ebab719556bb631ecb660d66e8168e'
+    password: '{cipher}47871ce83e5c5d812414842cf8e7b921f4d9bfd8d1ac0ff87b2b205828e9a646'
