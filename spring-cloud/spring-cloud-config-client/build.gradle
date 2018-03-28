@@ -9,9 +9,13 @@ buildscript {
     }
 }
 
+//plugins {
+//    id "com.gorylenko.gradle-git-properties" version "1.4.17"
+//}
+
 repositories {
     maven {
-      url 'https://repo.spring.io/libs-milestone'
+        url 'https://repo.spring.io/libs-milestone'
     }
     jcenter()
 }
@@ -23,10 +27,6 @@ apply plugin: "com.palantir.docker"
 apply plugin: 'org.springframework.boot'
 
 version="1.0.0"
-
-plugins {
-    id "com.gorylenko.gradle-git-properties" version "1.4.17"
-}
 
 springBoot {
     buildInfo()
