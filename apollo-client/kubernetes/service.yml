@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: apollo-client-service
+  labels:
+    app: apollo-client
+spec:
+  selector:
+    app: apollo-client
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

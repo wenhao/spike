@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apollo-client-deployment
+  labels:
+    app: apollo-client
+spec:
+  selector:
+    matchLabels:
+      app: apollo-client
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: apollo-client
+    spec:
+      containers:
+        - name: config-client
+          image: wenhao/apollo-client:v1.0.0
+          env:
+            - name: ENV
+              value: "dev"
+          ports:
+            - containerPort: 8080
