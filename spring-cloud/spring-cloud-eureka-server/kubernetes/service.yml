@@ -1,13 +1,13 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: spring-cloud-config-server-service
+  name: spring-cloud-eureka-server-service
   labels:
-    app: spring-cloud-config-server
+    app: spring-cloud-eureka-server
 spec:
   selector:
-    app: spring-cloud-config-server
+    app: spring-cloud-eureka-server
   ports:
     - protocol: TCP
-      port: 8888
-      targetPort: 8888
+      port: 80
+      targetPort: 8761
