@@ -1,0 +1,45 @@
+buildscript {
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
+        classpath "com.palantir.gradle.docker:gradle-docker:0.13.0"
+    }
+    repositories {
+        jcenter()
+    }
+}
+
+repositories {
+    maven {
+      url 'https://repo.spring.io/libs-milestone'
+    }
+    jcenter()
+}
+
+apply plugin: "io.spring.dependency-management"
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "com.palantir.docker"
+apply plugin: 'org.springframework.boot'
+
+version = '1.0.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencyManagement {
+     imports {
+          mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Finchley.M8'
+     }
+}
+
+dependencies {
+    compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+
+    compile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+docker {
+    name "wenhao/${jar.baseName}:${jar.version}"
+    files jar.archivePath
+    buildArgs(['JAR_FILE': "${jar.archiveName}"])
+}
