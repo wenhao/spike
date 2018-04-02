@@ -1,0 +1,16 @@
+package com.github.wenhao.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/services")
+public class EurekaServiceController {
+
+    @GetMapping
+    public ResponseEntity eurekaService() {
+        return ResponseEntity.ok("eureka service");
+    }
+}
