@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: spring-cloud-eureka-client-service
+  name: spring-cloud-ribbon-service
   labels:
-    app: spring-cloud-eureka-client
+    app: spring-cloud-ribbon
 spec:
   selector:
-    app: spring-cloud-eureka-client
+    app: spring-cloud-ribbon
   ports:
     - protocol: TCP
       port: 80

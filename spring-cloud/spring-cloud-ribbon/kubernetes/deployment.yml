@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-cloud-eureka-client-deployment
+  name: spring-cloud-ribbon-deployment
   labels:
-    app: spring-cloud-eureka-client
+    app: spring-cloud-ribbon
 spec:
   selector:
     matchLabels:
-      app: spring-cloud-eureka-client
+      app: spring-cloud-ribbon
   replicas: 1
   template:
     metadata:
       labels:
-        app: spring-cloud-eureka-client
+        app: spring-cloud-ribbon
     spec:
       containers:
-        - name: eureka-client
-          image: wenhao/spring-cloud-eureka-client:1.0.0
+        - name: ribbon
+          image: wenhao/spring-cloud-ribbon:v1.0.0
           ports:
             - containerPort: 8080
           env:

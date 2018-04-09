@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("/clients")
+@RequestMapping("/ribbons")
 @RibbonClient(name = "spring-cloud-eureka-service", configuration = EurekaConfiguration.class)
 public class RibbonController {
 
