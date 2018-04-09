@@ -1,0 +1,6 @@
+spring-cloud-eureka-service:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: 172.17.0.7:8080,172.17.0.9:8080
+    ServerListRefreshInterval: 15000

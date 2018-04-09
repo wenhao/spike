@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: spring-cloud-eureka-service-service
+  labels:
+    app: spring-cloud-eureka-service
+spec:
+  selector:
+    app: spring-cloud-eureka-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

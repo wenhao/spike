@@ -1,0 +1,82 @@
+{
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "openshift-jenkins-master",
+    "namespace": "devops",
+    "labels": {
+      "name": "openshift-jenkins-master"
+    }
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "openshift-jenkins-master",
+        "image": "172.30.1.1:5000/devops/openshift-jenkins-master:v1.0.0",
+        "ports": [
+          {
+            "containerPort": 8080
+          },
+          {
+            "containerPort": 50000
+          }
+        ],
+        "readinessProbe": {
+          "timeoutSeconds": 3,
+          "initialDelaySeconds": 3,
+          "httpGet": {
+            "path": "/login",
+            "port": 8080
+          }
+        },
+        "livenessProbe": {
+          "timeoutSeconds": 3,
+          "initialDelaySeconds": 420,
+          "failureThreshold": 30,
+          "httpGet": {
+            "path": "/login",
+            "port": 8080
+          }
+        },
+        "volumeMounts": [
+          {
+            "mountPath": "/var/jenkins_home",
+            "name": "openshift-jenkins-master-data"
+          }
+        ],
+        "resources": {
+          "limits": {
+            "memory": "2Gi",
+            "cpu": "2"
+          },
+          "requests": {
+            "memory": "1Gi",
+            "cpu": "1"
+          }
+        },
+        "env": [
+          {
+            "name": "JENKINS_ADMIN_USERNAME",
+            "value": "admin"
+          },
+          {
+            "name": "JENKINS_ADMIN_PASSWORD",
+            "value": "admin"
+          },
+          {
+            "name": "JENKINS_HOME",
+            "value": "/var/jenkins_home"
+          }
+        ]
+      }
+    ],
+    "volumes": [
+      {
+        "name": "jenkins-data",
+        "emptyDir": {
+        }
+      }
+    ],
+    "restartPolicy": "Always"
+  }
+}
