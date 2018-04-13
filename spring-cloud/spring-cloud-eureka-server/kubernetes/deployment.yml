@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: config-server
-        image: wenhao/spring-cloud-eureka-server:1.0.0
+        image: wenhao/spring-cloud-eureka-server:v1.0.0
         ports:
         - containerPort: 8761

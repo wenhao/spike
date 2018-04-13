@@ -3,12 +3,12 @@ server:
 spring:
   application:
     name: spring-cloud-ribbon
-#eureka:
-#  instance:
-#    appname: spring-cloud-eureka-client
-#    prefer-ip-address: true
-#  client:
-#    register-with-eureka: true
-#    fetch-registry: true
-#    service-url:
-#      defaultZone: ${EUREKA_URL}
+eureka:
+  instance:
+    appname: spring-cloud-ribbon
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${EUREKA_URL}

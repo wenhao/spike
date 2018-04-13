@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: eureka-service
-          image: wenhao/spring-cloud-eureka-service:1.0.0
+          image: wenhao/spring-cloud-eureka-service:v1.0.0
           ports:
             - containerPort: 8080
           env:

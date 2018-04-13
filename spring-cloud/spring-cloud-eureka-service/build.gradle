@@ -40,7 +40,7 @@ dependencies {
 }
 
 docker {
-    name "wenhao/${jar.baseName}:${jar.version}"
+    name "wenhao/${jar.baseName}:v${jar.version}"
     files jar.archivePath
     buildArgs(['JAR_FILE': "${jar.archiveName}"])
 }
