@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE'
+        classpath 'org.flywaydb:flyway-gradle-plugin:3.2.1'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.flywaydb.flyway'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web"
+    runtime("com.h2database:h2:1.4.197")
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'io.rest-assured:rest-assured:3.1.0'
+    testCompile 'io.rest-assured:json-schema-validator:3.1.0'
+}

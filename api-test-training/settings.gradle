@@ -1,0 +1,3 @@
+rootProject.name = 'api-test-training'
+
+include 'api-test', 'service'

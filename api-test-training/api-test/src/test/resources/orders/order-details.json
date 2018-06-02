@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Order",
+  "description": "订单详情信息",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier for a order",
+      "type": "integer"
+    },
+    "orderNo": {
+      "description": "number of the order",
+      "type": "string"
+    },
+    "price": {
+      "description": "price of order",
+      "type": "number"
+    },
+    "comment": {
+      "type": "string"
+    }
+  },
+  "required": ["id", "orderNo", "price"]
+}
