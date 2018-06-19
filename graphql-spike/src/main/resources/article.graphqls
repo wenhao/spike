@@ -1,0 +1,19 @@
+type Article {
+    id: Int!
+    title: String!
+    text: String!
+    author: Profile!
+    comments: [Comment]
+}
+
+input CreateArticleInput {
+    title: String!
+    text: String!
+    authorId: Int!
+}
+
+input UpdateArticleInput {
+    id: Int!
+    title: String!
+    text: String!
+}

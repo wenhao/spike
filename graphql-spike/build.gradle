@@ -1,0 +1,37 @@
+plugins {
+    id 'java-library'
+    id 'idea'
+    id 'net.ltgt.apt' version '0.10'
+    id 'org.springframework.boot' version '2.0.3.RELEASE'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.0.3.RELEASE'
+
+    implementation 'com.graphql-java:graphql-spring-boot-starter:4.2.0'
+    implementation 'com.graphql-java:graphiql-spring-boot-starter:4.2.0'
+    implementation 'com.graphql-java:graphql-java-tools:5.1.0'
+
+    compile 'org.projectlombok:lombok:1.18.0'
+	apt "org.projectlombok:lombok:1.18.0"
+
+    implementation 'org.mapstruct:mapstruct-jdk8:1.2.0.Final'
+    apt 'org.mapstruct:mapstruct-processor:1.2.0.Final'
+
+    compile 'com.h2database:h2:1.4.192'
+
+    testImplementation 'junit:junit:4.12'
+}
+
+compileJava {
+    options.compilerArgs = [
+            '-Amapstruct.defaultComponentModel=spring'
+    ]
+}
+
+repositories {
+    jcenter()
+}

@@ -1,0 +1,15 @@
+type Profile {
+    id: Int!
+    username: String!
+    bio: String!
+}
+
+input CreateProfileInput {
+    username: String!
+    bio: String
+}
+
+input UpdateProfileInput {
+    id: Int!
+    bio: String
+}
