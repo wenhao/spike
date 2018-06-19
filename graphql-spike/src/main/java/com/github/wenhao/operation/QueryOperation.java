@@ -34,4 +34,8 @@ public class QueryOperation implements GraphQLQueryResolver {
     public Article getArticle(Long id) {
         return articleRepository.findById(id).get();
     }
+
+    public String getVersion() {
+        return "1.0.0";
+    }
 }

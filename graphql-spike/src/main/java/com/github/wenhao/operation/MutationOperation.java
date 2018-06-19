@@ -82,4 +82,8 @@ public class MutationOperation implements GraphQLMutationResolver {
         commentRepository.deleteById(id);
         return 1;
     }
+
+    public String getVersion() {
+        return "1.0.0";
+    }
 }

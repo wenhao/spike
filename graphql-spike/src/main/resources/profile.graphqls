@@ -13,3 +13,13 @@ input UpdateProfileInput {
     id: Int!
     bio: String
 }
+
+extend type Query{
+    profiles: [Profile]
+}
+
+extend type Mutation {
+    createProfile(input: CreateProfileInput!): Profile!
+    updateProfile(input: UpdateProfileInput!): Profile!
+    deleteProfile(id: Int!): Int!
+}
