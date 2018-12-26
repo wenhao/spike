@@ -4,6 +4,7 @@ plugins {
 }
 
 dependencies {
+    implementation 'cglib:cglib:3.2.10'
     implementation 'com.google.guava:guava:23.0'
 
     testImplementation 'junit:junit:4.12'
