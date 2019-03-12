@@ -1,0 +1,13 @@
+groups:
+- name: loads
+  rules:
+  - alert: loadsAlert
+    expr: node_load1 > 4
+    for: 1m
+    labels:
+      severity: warning
+    annotations:
+      summary: "{{$labels.instance}}: has been down"
+      description: "{{$labels.instance}}: job {{$labels.job}} has been down"
+      value: "{{$value}}"
+

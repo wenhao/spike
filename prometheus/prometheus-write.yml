@@ -1,0 +1,25 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+alerting:
+  #alertmanagers:
+  #- static_configs:
+  #  - targets:
+  #     - 'localhost:9093'
+
+rule_files:
+   # - "./rules/load_rules.yml"      
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+    - targets: ['localhost:9090'] 
+  - job_name: 'Mac'
+    static_configs:
+      - targets: ['localhost:9100']
+
+remote_write:
+  - url: "http://localhost:8086/api/v1/prom/write?db=prometheus"
+
+# prometheus --config.file=./prometheus-read.yml --web.listen-address=:9090  --storage.tsdb.path=./data-write  
