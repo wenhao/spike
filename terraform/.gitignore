@@ -2,3 +2,4 @@
 *.txt
 *.tfstate
 *.backup
+*.info

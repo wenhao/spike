@@ -23,7 +23,3 @@ resource "aws_s3_bucket" "example" {
   bucket = "terraform-wenhao-getting-started-guide"
   acl = "private"
 }
-
-output "ip" {
-  value = "${aws_eip.ip.public_ip}"
-}
