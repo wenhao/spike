@@ -24,4 +24,6 @@ resource "aws_s3_bucket" "example" {
   acl = "private"
 }
 
-
+output "ip" {
+  value = "${aws_eip.ip.public_ip}"
+}
