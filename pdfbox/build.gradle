@@ -1,0 +1,15 @@
+plugins {
+    id 'java-library'
+    id 'idea'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.apache.pdfbox:pdfbox:2.0.14'
+    implementation 'com.google.guava:guava:27.0.1-jre'
+
+    testImplementation 'junit:junit:4.12'
+}
