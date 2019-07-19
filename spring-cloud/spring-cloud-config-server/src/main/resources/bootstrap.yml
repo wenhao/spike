@@ -7,7 +7,7 @@ spring:
         git:
           uri: https://github.com/wenhao/spike.git
           username: wenhao@126.com
-          password: 1qaz!QAZ
+          password: wH@930109
           clone-on-start: true
           force-pull: true
           search-paths: 'spring-cloud/spring-cloud-config-server/config/{application}'
