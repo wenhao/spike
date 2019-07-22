@@ -1,30 +1,18 @@
-buildscript {
-    dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE"
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
-        classpath "com.palantir.gradle.docker:gradle-docker:0.13.0"
-    }
-    repositories {
-        jcenter()
-    }
+plugins {
+    id 'java-library'
+    id 'idea'
+    id "org.springframework.boot" version '2.1.6.RELEASE'
 }
 
-//plugins {
-//    id "com.gorylenko.gradle-git-properties" version "1.4.17"
-//}
+apply plugin: 'io.spring.dependency-management'
 
 repositories {
-    maven {
-        url 'https://repo.spring.io/libs-milestone'
+    maven{
+        url 'https://maven.aliyun.com/repository/public'
     }
-    jcenter()
 }
 
 apply plugin: "io.spring.dependency-management"
-apply plugin: "java"
-apply plugin: "idea"
-apply plugin: "com.palantir.docker"
-apply plugin: 'org.springframework.boot'
 
 version="1.0.0"
 
@@ -34,7 +22,7 @@ springBoot {
 
 dependencyManagement {
      imports {
-          mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Finchley.M8'
+          mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR2'
      }
 }
 

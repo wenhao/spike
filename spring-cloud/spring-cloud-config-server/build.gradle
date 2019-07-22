@@ -1,23 +1,16 @@
-buildscript {
-    dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE"
-        classpath "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
-        classpath "com.palantir.gradle.docker:gradle-docker:0.13.0"
-    }
-    repositories {
-        jcenter()
-    }
+plugins {
+    id 'java-library'
+    id 'idea'
+    id "org.springframework.boot" version '2.1.6.RELEASE'
 }
+
+apply plugin: 'io.spring.dependency-management'
 
 repositories {
-    jcenter()
+    maven{
+        url 'https://maven.aliyun.com/repository/public'
+    }
 }
-
-apply plugin: "io.spring.dependency-management"
-apply plugin: "java"
-apply plugin: "idea"
-apply plugin: "com.palantir.docker"
-apply plugin: 'org.springframework.boot'
 
 version = '1.0.0'
 sourceCompatibility = 1.8
@@ -35,10 +28,4 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-actuator'
 
     compile 'org.springframework.boot:spring-boot-starter-test'
-}
-
-docker {
-    name "wenhao/${jar.baseName}:${jar.version}"
-    files jar.archivePath
-    buildArgs(['JAR_FILE': "${jar.archiveName}"])
 }
