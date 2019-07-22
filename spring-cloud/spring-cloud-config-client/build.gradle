@@ -12,8 +12,6 @@ repositories {
     }
 }
 
-apply plugin: "io.spring.dependency-management"
-
 version="1.0.0"
 
 springBoot {
@@ -34,10 +32,4 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-actuator'
 
     compile 'org.springframework.boot:spring-boot-starter-test'
-}
-
-docker {
-    name "wenhao/${jar.baseName}:${jar.version}"
-    files jar.archivePath
-    buildArgs(['JAR_FILE': "${jar.archiveName}"])
 }
