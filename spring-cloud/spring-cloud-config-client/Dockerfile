@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:8-alpine
 
 VOLUME /tmp
 ADD ./build/libs/*.jar /opt/app.jar
