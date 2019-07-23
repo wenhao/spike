@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: spring-cloud-config-client-service
+  name: spring-cloud-config-client
   labels:
     app: spring-cloud-config-client
 spec:
