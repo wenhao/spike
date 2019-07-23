@@ -1,1 +1,1 @@
-kubectl expose deployment spring-cloud-eureka-server --type=LoadBalancer --name=spring-cloud-eureka-server
+minikube service spring-cloud-eureka-server --url -n microservice
