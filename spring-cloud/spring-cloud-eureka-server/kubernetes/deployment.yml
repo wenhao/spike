@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-cloud-eureka-server-deployment
+  name: spring-cloud-eureka-server
   labels:
     app: spring-cloud-eureka-server
 spec:
