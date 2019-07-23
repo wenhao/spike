@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: spring-cloud-eureka-service-service
+  name: spring-cloud-eureka-service
   labels:
     app: spring-cloud-eureka-service
 spec:
