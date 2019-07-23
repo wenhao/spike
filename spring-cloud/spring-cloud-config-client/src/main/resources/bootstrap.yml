@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-config-client
+    name: spring-cloud-config-client
   profiles:
     active: "${SPRING_PROFILES_ACTIVE}"
   cloud:
