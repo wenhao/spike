@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-cloud-eureka-service
+  name: spring-cloud-service-provider
   labels:
-    app: spring-cloud-eureka-service
+    app: spring-cloud-service-provider
 spec:
   selector:
     matchLabels:
-      app: spring-cloud-eureka-service
+      app: spring-cloud-service-provider
   replicas: 1
   template:
     metadata:
       labels:
-        app: spring-cloud-eureka-service
+        app: spring-cloud-service-provider
     spec:
       containers:
-        - name: eureka-service
-          image: wenhao/spring-cloud-eureka-service:1.0.0
+        - name: service-provider
+          image: wenhao/spring-cloud-service-provider:1.0.0
           ports:
             - containerPort: 8080
           env:

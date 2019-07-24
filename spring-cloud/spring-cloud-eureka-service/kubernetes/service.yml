@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: spring-cloud-eureka-service
+  name: spring-cloud-service-provider
   labels:
-    app: spring-cloud-eureka-service
+    app: spring-cloud-service-provider
 spec:
   selector:
-    app: spring-cloud-eureka-service
+    app: spring-cloud-service-provider
   ports:
     - protocol: TCP
       port: 80
