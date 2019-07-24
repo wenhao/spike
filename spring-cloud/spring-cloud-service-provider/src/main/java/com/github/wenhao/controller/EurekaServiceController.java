@@ -11,6 +11,6 @@ public class EurekaServiceController {
 
     @GetMapping
     public ResponseEntity eurekaService() {
-        return ResponseEntity.ok("eureka service");
+        return ResponseEntity.ok("service provider");
     }
 }
