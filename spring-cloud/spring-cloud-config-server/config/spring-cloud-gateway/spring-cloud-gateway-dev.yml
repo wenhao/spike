@@ -3,7 +3,8 @@ server:
 
 spring:
   cloud:
-    routes:
+    gateway:
+      routes:
       - id: service-provider
         predicates:
         - Path=/service-provider/**
