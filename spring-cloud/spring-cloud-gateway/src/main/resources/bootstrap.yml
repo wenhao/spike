@@ -12,12 +12,3 @@ spring:
       retry:
         max-attempts: 10
         max-interval: 5000
-eureka:
-  instance:
-    appname: spring-cloud-gateway
-    prefer-ip-address: true
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: ${EUREKA_URL}

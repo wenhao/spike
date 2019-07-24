@@ -20,8 +20,6 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: EUREKA_URL
-              value: "http://spring-cloud-eureka-server:80/eureka/"
             - name: SPRING_PROFILES_ACTIVE
               value: "dev"
             - name: CONFIG_SERVER_URL

@@ -9,3 +9,13 @@ spring:
         predicates:
         - Path=/service-provider/**
         uri: "http://spring-cloud-service-provider.microservice:80"
+
+eureka:
+  instance:
+    appname: spring-cloud-gateway
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: "http://spring-cloud-eureka-server:80/eureka/"
