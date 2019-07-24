@@ -22,7 +22,3 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "dev"
-            - name: CONFIG_SERVER_URL
-              value: "http://spring-cloud-config-server.microservice"
-            - name: CONFIG_SERVER_PORT
-              value: "8888"
