@@ -19,3 +19,6 @@ spec:
         image: wenhao/spring-cloud-config-server:1.0.0
         ports:
         - containerPort: 8888
+        envs:
+          - name: EUREKA_URL
+            value: "http://spring-cloud-eureka-server:80/eureka/"
