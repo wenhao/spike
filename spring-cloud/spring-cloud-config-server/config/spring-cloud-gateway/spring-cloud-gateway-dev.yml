@@ -7,7 +7,7 @@ spring:
       routes:
       - id: service-provider
         predicates:
-        - Path=/service-provider/**
+          - Path=/service-provider/**
         uri: "http://spring-cloud-service-provider.microservice:80"
 
 eureka:
