@@ -4,9 +4,9 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(name = "SPRING-CLOUD-SERVICE-PROVIDER")
-public interface EurekaServiceClient {
+@FeignClient(name = "SPRING-CLOUD-PRODUCT-SERVICE")
+public interface ProductServiceClient {
 
-    @RequestMapping(value = "services", method = RequestMethod.GET)
+    @RequestMapping(value = "products", method = RequestMethod.GET)
     String get();
 }

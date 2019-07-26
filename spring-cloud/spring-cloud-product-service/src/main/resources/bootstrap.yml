@@ -1,9 +1,9 @@
 spring:
   application:
-    name: spring-cloud-service-provider
+    name: spring-cloud-product-service
 eureka:
   instance:
-    appname: spring-cloud-service-provider
+    appname: spring-cloud-product-service
     prefer-ip-address: true
   client:
     register-with-eureka: true

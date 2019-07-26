@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-cloud-service-consumer
+    name: spring-cloud-order-service
   profiles:
     active: "${SPRING_PROFILES_ACTIVE}"
   cloud:

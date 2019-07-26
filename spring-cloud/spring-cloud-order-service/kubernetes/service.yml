@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: spring-cloud-service-consumer
+  name: spring-cloud-order-service
   labels:
-    app: spring-cloud-service-consumer
+    app: spring-cloud-order-service
 spec:
   selector:
-    app: spring-cloud-service-consumer
+    app: spring-cloud-order-service
   ports:
     - protocol: TCP
       port: 80

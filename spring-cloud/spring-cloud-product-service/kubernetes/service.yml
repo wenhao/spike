@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: spring-cloud-service-provider
+  name: spring-cloud-product-service
   labels:
-    app: spring-cloud-service-provider
+    app: spring-cloud-product-service
 spec:
   selector:
-    app: spring-cloud-service-provider
+    app: spring-cloud-product-service
   ports:
     - protocol: TCP
       port: 80

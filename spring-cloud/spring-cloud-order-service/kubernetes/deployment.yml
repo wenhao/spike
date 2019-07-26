@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-cloud-service-consumer
+  name: spring-cloud-order-service
   labels:
-    app: spring-cloud-service-consumer
+    app: spring-cloud-order-service
 spec:
   selector:
     matchLabels:
-      app: spring-cloud-service-consumer
+      app: spring-cloud-order-service
   replicas: 1
   template:
     metadata:
       labels:
-        app: spring-cloud-service-consumer
+        app: spring-cloud-order-service
     spec:
       containers:
-        - name: service-consumer
-          image: wenhao/spring-cloud-service-consumer:1.0.0
+        - name: order-service
+          image: wenhao/spring-cloud-order-service:1.0.0
           ports:
             - containerPort: 8080
           env:
