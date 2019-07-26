@@ -1,3 +1,6 @@
+server:
+  port: 8888
+
 spring:
   application:
     name: spring-cloud-config-server
@@ -26,10 +29,10 @@ management:
 
 eureka:
   instance:
-    appname: spring-cloud-config-server
-    prefer-ip-address: true
+    hostname: spring-cloud-eureka-server
+    instance-id: ${spring.application.name}:${server.port}
   client:
     register-with-eureka: true
-    fetch-registry: true
+    fetch-registry: false
     service-url:
-      defaultZone: ${EUREKA_URL}
+      defaultZone: http://${eureka.instance.hostname}:${EUREKA_PORT}/eureka/

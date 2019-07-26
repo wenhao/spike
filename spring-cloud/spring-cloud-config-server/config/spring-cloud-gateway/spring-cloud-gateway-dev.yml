@@ -5,7 +5,13 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: service-provider
+      - id: order-service
         predicates:
-          - Path=/service-provider/**
-        uri: "http://spring-cloud-service-provider.microservice:80"
+          - Path=/orders/**
+        uri: "http://spring-cloud-order-service.microservice:80"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,info,health

@@ -22,3 +22,5 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "dev"
+            - name: EUREKA_PORT
+              value: "80"

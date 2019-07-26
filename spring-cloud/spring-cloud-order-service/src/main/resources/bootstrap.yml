@@ -15,10 +15,10 @@ spring:
 
 eureka:
   instance:
-    appname: spring-cloud-order-service
-    prefer-ip-address: true
+    hostname: spring-cloud-eureka-server
+    instance-id: ${spring.application.name}:${server.port}
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: "http://spring-cloud-eureka-server:80/eureka/"
+      defaultZone: http://${eureka.instance.hostname}:${EUREKA_PORT}/eureka/
