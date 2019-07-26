@@ -30,7 +30,7 @@ management:
 eureka:
   instance:
     hostname: spring-cloud-eureka-server
-    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
   client:
     register-with-eureka: true
     fetch-registry: false
