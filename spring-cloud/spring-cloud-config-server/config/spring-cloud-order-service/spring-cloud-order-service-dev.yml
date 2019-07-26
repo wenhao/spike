@@ -16,12 +16,8 @@ hystrix:
           thread:
             timeoutInMilliseconds: 9000
 
-eureka:
-  instance:
-    appname: spring-cloud-order-service
-    prefer-ip-address: true
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: "http://spring-cloud-eureka-server:80/eureka/"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,info,health
