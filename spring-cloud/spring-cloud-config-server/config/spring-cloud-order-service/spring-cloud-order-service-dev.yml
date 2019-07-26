@@ -18,7 +18,7 @@ hystrix:
 
 eureka:
   instance:
-    appname: spring-cloud-service-consumer
+    appname: spring-cloud-order-service
     prefer-ip-address: true
   client:
     register-with-eureka: true
