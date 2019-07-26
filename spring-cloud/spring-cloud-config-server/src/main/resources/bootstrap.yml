@@ -29,10 +29,9 @@ management:
 
 eureka:
   instance:
-    hostname: spring-cloud-eureka-server
     prefer-ip-address: true
   client:
     register-with-eureka: true
     fetch-registry: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${EUREKA_PORT}/eureka/
+      defaultZone: ${EUREKA_URL}
