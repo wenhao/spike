@@ -22,5 +22,7 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "dev"
+            - name: CONFIG_SERVER_URL
+              value: "http://spring-cloud-config-server.microservice:80"
             - name: EUREKA_URL
               value: "http://spring-cloud-eureka-server.microservice:80/eureka"

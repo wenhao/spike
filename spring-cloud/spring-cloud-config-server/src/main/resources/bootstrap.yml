@@ -26,12 +26,12 @@ management:
     web:
       exposure:
         include: "*"
-
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    register-with-eureka: true
-    fetch-registry: false
-    service-url:
-      defaultZone: ${EUREKA_URL}
+#
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: false
+#    service-url:
+#      defaultZone: ${EUREKA_URL}

@@ -1,0 +1,27 @@
+plugins {
+    id 'idea'
+    id 'java-library'
+}
+
+repositories {
+    jcenter()
+}
+
+idea {
+    project {
+        vcs = 'Git'
+    }
+    module {
+        jdkName = '1.8'
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+dependencies {
+    implementation 'org.ow2.asm:asm:7.2'
+    implementation 'org.ow2.asm:asm-util:7.2'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation("org.assertj:assertj-core:3.11.1")
+}
