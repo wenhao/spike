@@ -1,12 +1,12 @@
-spring:
-  application:
-    name: spring-cloud-product-service
-eureka:
-  instance:
-    appname: spring-cloud-product-service
-    prefer-ip-address: true
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: ${EUREKA_URL}
+#spring:
+#  application:
+#    name: spring-cloud-product-service
+#eureka:
+#  instance:
+#    appname: spring-cloud-product-service
+#    prefer-ip-address: true
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: ${EUREKA_URL}

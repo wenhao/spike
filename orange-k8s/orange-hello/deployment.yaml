@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-hello
+  labels:
+    app: orange-hello
+spec:
+  selector:
+    matchLabels:
+      app: orange-hello
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange-hello
+    spec:
+      containers:
+        - name: orange-hello
+          image: wenhao/orange-hello:1.0.0
+          ports:
+            - containerPort: 8080

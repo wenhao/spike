@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-collector
+  labels:
+    app: orange-collector
+spec:
+  selector:
+    matchLabels:
+      app: orange-collector
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange-collector
+    spec:
+      containers:
+        - name: orange-collector
+          image: wenhao/orange-collector:1.0.0
+          ports:
+            - containerPort: 8080

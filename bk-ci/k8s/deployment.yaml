@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: bk-ci
-          image: blueking/bk-ci
+          image: blueking/bk-ci:latest
           ports:
             - containerPort: 80
